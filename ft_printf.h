@@ -67,6 +67,8 @@ char	*ft_itoa_pf(long long n, t_lpf *node);
 int		ft_abs(long long n);
 int		ft_intlen_base_u(unsigned long long n, int base);
 
+char	*ft_ll2a_pf(long long n);
+
 void ft_print_node(t_lpf *node);
 
 #endif

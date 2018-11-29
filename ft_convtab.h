@@ -25,11 +25,14 @@ typedef struct	s_conv
 char			*ft_conv_c(t_lpf *node, va_list ap);
 char			*ft_conv_s(t_lpf *node, va_list ap);
 char			*ft_conv_p(t_lpf *node, va_list ap);
+char			*ft_conv_d(t_lpf *node, va_list ap);
 
 
 t_conv	g_convtab[] = {{'c', &ft_conv_c}, \
 	{'s', &ft_conv_s}, \
 	{'p', &ft_conv_p}, \
+	{'d', &ft_conv_d}, \
+	{'i', &ft_conv_d}, \
 	{'\0', 0}};
 
 #endif

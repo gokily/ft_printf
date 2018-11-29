@@ -94,9 +94,11 @@ t_list				*ft_lstpop(t_list **alst);
 void				ft_lstpush(t_list *alst, t_list *elem);
 
 char				*ft_itoa(int n);
+char				*ft_ll2a(long long n);
 int					ft_intabs(int n);
 int					ft_intlen_base(int n, int base);
 size_t				ft_size_tlen_base(size_t n, size_t base);
 char				*ft_size_t2a_base(size_t nb, char *base);
+size_t				ft_longlonglen_base(long long nb, int base);
 
 #endif
