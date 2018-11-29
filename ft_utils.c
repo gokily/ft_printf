@@ -40,17 +40,19 @@ char	*ft_strspace(size_t len)
 	return (new);
 }
 
-char	*ft_strzero(int len)
+char	*ft_strzero(size_t len)
 {
 	char	*new;
-	int		i;
+	size_t	i;
 
-	new = NULL;
-	if (!(new = ft_strnew(len)))
+	if (!(new = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
-	i = -1;
-	while (++i < len)
+	while (i < len)
+	{
 		new[i] = '0';
+		i++;
+	}
+	new[i] = '\0';
 	return (new);
 }
 
@@ -77,10 +79,4 @@ char	*ft_strinsert(char *s1, char *s2, int index)
 	ft_strdel(&s1);
 	ft_strdel(&s2);
 	return (output);
-}
-
-
-int		ft_abs(long long n)
-{
-	return (n < 0 ? -n : n);
 }

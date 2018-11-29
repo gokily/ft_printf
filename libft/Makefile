@@ -30,8 +30,9 @@ SRC = ft_atoi.c		ft_bzero.c		ft_isalnum.c	\
 	  ft_strsplit.c	ft_strstr.c		ft_strsub.c		ft_strtrim.c	\
 	  ft_strchrstr.c	ft_strjoinfree.c	\
 	  ft_tolower.c	ft_toupper.c \
-	  ft_intabs.c	ft_strskipc.c	ft_intlen_base.c \
+	  ft_intabs.c	ft_strskipc.c	ft_intlen_base.c ft_size_tlen_base.c	\
 	  ft_lstlast.c	ft_lstpop.c		ft_lstpush.c	\
+	  ft_size_t2a_base.c	\
 
 all: $(NAME)
 

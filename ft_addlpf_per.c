@@ -100,6 +100,7 @@ size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap, size_t *index
 		free(node);
 		return (0);
 	}
+	//ft_print_node(node);
 	(*index)++;
 	node->ret += ft_strlen(node->str);
 	lpf = ft_lpf_push(lpf, node);

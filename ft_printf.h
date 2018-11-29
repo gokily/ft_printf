@@ -45,14 +45,11 @@ void 		ft_error(t_lpf *lst);
 size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap, size_t *index);
 size_t		ft_addlpf_str(t_lpf **lpf, const char *format, size_t index);
 
-char		*ft_conv_c(t_lpf *node, va_list ap);
-char		*ft_conv_s(t_lpf *node, va_list ap);
-
 t_lpf		*ft_lpfnew(void);
 
 int			ft_is_arg(char c);
 char		*ft_strspace(size_t len);
-char		*ft_strzero(int len);
+char		*ft_strzero(size_t len);
 char		*ft_convert_s(char *str, t_lpf *node);
 char		*ft_convert_c(int c, t_lpf *node);
 char		*ft_convert_p(unsigned long ptr, t_lpf *node);
@@ -70,5 +67,6 @@ char	*ft_itoa_pf(long long n, t_lpf *node);
 int		ft_abs(long long n);
 int		ft_intlen_base_u(unsigned long long n, int base);
 
+void ft_print_node(t_lpf *node);
 
 #endif
