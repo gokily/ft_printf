@@ -30,6 +30,7 @@ char			*ft_conv_u(t_lpf *node, va_list ap);
 char			*ft_conv_o(t_lpf *node, va_list ap);
 char			*ft_conv_x(t_lpf *node, va_list ap);
 char			*ft_conv_X(t_lpf *node, va_list ap);
+char			*ft_conv_per(t_lpf *node, va_list ap);
 
 
 t_conv	g_convtab[] = {{'c', &ft_conv_c}, \
@@ -41,6 +42,7 @@ t_conv	g_convtab[] = {{'c', &ft_conv_c}, \
 	{'o', &ft_conv_o}, \
 	{'x', &ft_conv_x}, \
 	{'X', &ft_conv_X}, \
+	{'%', &ft_conv_per}, \
 	{'\0', 0}};
 
 #endif
