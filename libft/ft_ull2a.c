@@ -1,7 +1,5 @@
 #include <stdlib.h>
 
-#include <stdio.h>
-
 char		*ft_ull2a(unsigned long long n)
 {
 	unsigned long long	power;
