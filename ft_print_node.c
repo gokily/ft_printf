@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "ft_printf.h"
 
 void	ft_print_node(t_lpf *node)

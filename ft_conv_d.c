@@ -13,8 +13,6 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-#include <stdio.h>
-
 static char	*ft_add_flags(char *ret, t_lpf *node, long long nb)
 {
 	if (nb < 0)

@@ -14,8 +14,6 @@
 #include "ft_convtab.h"
 #include <stdlib.h>
 
-#include <stdio.h>
-
 static char	*ft_va2str(t_lpf *node, va_list ap)
 {
 	size_t		i;

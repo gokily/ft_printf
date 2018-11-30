@@ -3,6 +3,8 @@
 # define FT_PRINTF_H
 # include "libft/libft.h"
 # include <stdarg.h>
+
+
 # include <stdio.h>
 
 # define POUND		1
@@ -21,7 +23,6 @@
 # define HEX_U		1 << 13
 # define HEX_PTR	1 << 14
 # define LDOUBLE	1 << 15
-#define CONV "%cspdiouxXf"
 
 typedef struct	s_lpf
 {
