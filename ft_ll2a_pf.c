@@ -18,7 +18,7 @@ static int	digit_num(long long n)
 
 char		*ft_ll2a_pf(long long n)
 {
-	int		power;
+	long long	power;
 	char	*ptr;
 	size_t	i;
 

@@ -13,6 +13,8 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
+#include <stdio.h>
+
 static char	*ft_add_flags(char *ret, t_lpf *node, long long nb)
 {
 	if (nb < 0)
@@ -28,8 +30,8 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, long long nb)
 {
 	size_t n;
 
-	n = node->width - len;
-	if (n > 0)
+	n = node->width > len ? node->width - len : 0;
+	if (n != 0)
 	{
 		if (node->flag & MINUS)
 			ret = ft_strjoinfree(ret, ft_strspace(n), RIGHT | LEFT);
@@ -41,7 +43,9 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, long long nb)
 			return (ft_strjoinfree(ft_strspace(n), ret, RIGHT | LEFT));
 		}
 	}
-	return (ft_add_flags(ret, node, nb));
+	if (!(node->flag & ACC) && node->flag & ZERO)
+		ret = ft_add_flags(ret, node, nb);
+	return (ret);
 }
 
 static char	*ft_conv_d2(long long nb, t_lpf *node)

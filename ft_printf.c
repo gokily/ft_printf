@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-#include <stdio.h>
 
 int		ft_printf(const char *format, ...)
 {
@@ -26,21 +25,16 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (format[index] != '\0')
 	{
-		printf("%zu\n", index);
 		if (format[index] == '%')
 		{
-			puts("Found a % !");
 			index++;
 			if (!ft_addlpf_per(&lst, format, ap, &index))
 			{
 				ft_rmlpf_all(lst);
 				return (0);
 			}
-			puts("created a node");
 		}
-		printf("%zu\n", index);
 		index = ft_addlpf_str(&lst, format, index);
-		printf("%zu\n", index);
 	}
 	va_end(ap);
 	ft_printlpf_all(lst, &ret);
