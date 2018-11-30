@@ -43,9 +43,7 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, long long nb)
 			return (ft_strjoinfree(ft_strspace(n), ret, RIGHT | LEFT));
 		}
 	}
-	if (!(node->flag & ACC) && node->flag & ZERO)
-		ret = ft_add_flags(ret, node, nb);
-	return (ret);
+	return (ft_add_flags(ret, node, nb));
 }
 
 static char	*ft_conv_d2(long long nb, t_lpf *node)
@@ -67,9 +65,6 @@ static char	*ft_conv_d2(long long nb, t_lpf *node)
 			return (NULL);
 		len = node->acc;
 	}
-	if (node->flag & ACC || !(node->flag & ZERO))
-		if (!(ret = ft_add_flags(ret, node, nb)))
-			return (NULL);
 	len += (nb < 0 || node->flag & PLUS || node->flag & SPACE) ? 1 : 0;
 	if (!(ret = ft_add_width(ret, node, len, nb)))
 		return (NULL);
