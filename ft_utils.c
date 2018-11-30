@@ -47,6 +47,7 @@ char	*ft_strzero(size_t len)
 
 	if (!(new = malloc(sizeof(char) * (len + 1))))
 		return (NULL);
+	i = 0;
 	while (i < len)
 	{
 		new[i] = '0';
