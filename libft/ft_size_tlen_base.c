@@ -7,7 +7,7 @@ size_t		ft_size_tlen_base(size_t n, size_t base)
 
 	i = 1;
 	power = base;
-	while ((n / power) > base)
+	while ((n / power) != 0)
 	{
 		i++;
 		power *= base;

@@ -7,7 +7,7 @@ size_t		ft_longlonglen_base(long long n, int base)
 
 	i = 1;
 	power = n < 0 ? -base : base;
-	while ((n / power) > base)
+	while ((n / power) != 0)
 	{
 		i++;
 		power *= base;

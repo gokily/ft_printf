@@ -17,7 +17,7 @@ int		ft_intlen_base(int n, int base)
 
 	i = 1;
 	power = n < 0 ? -base : base;
-	while ((n / power) > base)
+	while ((n / power) != 0)
 	{
 		i++;
 		power *= base;

@@ -14,6 +14,7 @@ NAME = libft.a
 
 SRC = ft_atoi.c		ft_bzero.c		ft_isalnum.c	\
 	  ft_ll2a.c	\
+	  ft_ull2a.c	\
 	  ft_isalpha.c	ft_isascii.c	ft_isdigit.c	ft_isprint.c	\
 	  ft_itoa.c		ft_lstadd.c		ft_lstdel.c		\
 	  ft_lstdelone.c	ft_lstiter.c	ft_lstmap.c		ft_lstnew.c		\
@@ -35,6 +36,7 @@ SRC = ft_atoi.c		ft_bzero.c		ft_isalnum.c	\
 	  ft_lstlast.c	ft_lstpop.c		ft_lstpush.c	\
 	  ft_size_t2a_base.c	\
 	  ft_longlonglen_base.c	\
+	  ft_ulllen_base.c	\
 
 all: $(NAME)
 
