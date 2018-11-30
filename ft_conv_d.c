@@ -13,9 +13,6 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-
-#include <stdio.h>
-
 static char	*ft_add_flags(char *ret, t_lpf *node, long long nb)
 {
 	if (nb < 0)
@@ -52,6 +49,10 @@ static char	*ft_conv_d2(long long nb, t_lpf *node)
 	char	*ret;
 	size_t		len;
 
+	if (node->flag & CHAR)
+		nb = (char)nb;
+	else if (node->flag & SHORT)
+		nb = (short)nb;
 	len = ft_longlonglen_base(nb, 10);
 	if (!(ret = ft_ll2a_pf(nb)))
 		return (NULL);
