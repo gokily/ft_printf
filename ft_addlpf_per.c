@@ -56,7 +56,7 @@ static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)
 	while (format[*index] && ft_is_arg(format[*index]) == 0)
 	{
 		if (format[*index] == '#')
-			node->flag |= SHARP;
+			node->flag |= POUND;
 		if (format[*index] == '+')
 			node->flag |= PLUS;
 		if (format[*index] == '-')

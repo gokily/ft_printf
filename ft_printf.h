@@ -5,7 +5,7 @@
 # include <stdarg.h>
 # include <stdio.h>
 
-# define SHARP		1
+# define POUND		1
 # define ZERO		1 << 1
 # define MINUS		1 << 2
 # define SPACE		1 << 3

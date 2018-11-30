@@ -35,6 +35,7 @@ SRC = ft_atoi.c		ft_bzero.c		ft_isalnum.c	\
 	  ft_intabs.c	ft_strskipc.c	ft_intlen_base.c ft_size_tlen_base.c	\
 	  ft_lstlast.c	ft_lstpop.c		ft_lstpush.c	\
 	  ft_size_t2a_base.c	\
+	  ft_ull2a_base.c	\
 	  ft_longlonglen_base.c	\
 	  ft_ulllen_base.c	\
 
