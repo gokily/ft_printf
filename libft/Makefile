@@ -6,7 +6,7 @@
 #    By: gly <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 13:31:32 by gly               #+#    #+#              #
-#    Updated: 2018/11/27 16:25:27 by gly              ###   ########.fr        #
+#    Updated: 2018/12/03 11:47:47 by gly              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,8 @@ SRC = ft_atoi.c		ft_bzero.c		ft_isalnum.c	\
 	  ft_ull2a_base.c	\
 	  ft_longlonglen_base.c	\
 	  ft_ulllen_base.c	\
+	  ft_intpart_double.c	\
+	  ft_round_double.c	\
 
 all: $(NAME)
 

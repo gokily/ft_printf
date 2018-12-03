@@ -1,5 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_size_t2a_base.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/03 15:54:02 by gly               #+#    #+#             */
+/*   Updated: 2018/12/03 16:12:29 by gly              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "libft.h"
+
+#include <stdio.h>
 
 static int	valid_base(char *base)
 {
@@ -32,7 +46,7 @@ char		*ft_size_t2a_base(size_t nb, char *base)
 	n_base = ft_strlen(base);
 	if (n_base <= 1 || valid_base(base) == 0)
 		return (NULL);
-	while (nb / power > n_base)
+	while (nb / power >= n_base)
 		power *= n_base;
 	if (!(ret = malloc(sizeof(char) * (ft_size_tlen_base(nb, n_base) + 1))))
 		return (NULL);

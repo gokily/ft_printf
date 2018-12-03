@@ -32,7 +32,7 @@ char		*ft_ull2a_base(unsigned long long nb, char *base)
 	n_base = (unsigned long long)ft_strlen(base);
 	if (n_base <= 1 || valid_base(base) == 0)
 		return (NULL);
-	while (nb / power > n_base)
+	while (nb / power >= n_base)
 		power *= n_base;
 	if (!(ret = malloc(sizeof(char) * (ft_ulllen_base(nb, n_base) + 1))))
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:29:36 by gly               #+#    #+#             */
-/*   Updated: 2018/11/27 16:31:02 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/03 11:48:13 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,5 +103,6 @@ size_t				ft_longlonglen_base(long long nb, int base);
 size_t				ft_ulllen_base(unsigned long long nb, unsigned int base);
 char				*ft_size_t2a_base(size_t nb, char *base);
 char				*ft_ull2a_base(unsigned long long n, char *base);
-
+long long			ft_intpart_double(long double nb);
+long double			ft_round_double(long double nb, size_t acc);
 #endif
