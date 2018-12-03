@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2018/11/27 15:58:02 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/03 17:59:58 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,15 +63,15 @@ static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)
 			node->flag |= SPACE;
 		if (format[*index] == '0' && ft_isdigit(format[*index - 1]) == 0)
 			node->flag |= ZERO;
+		if (ft_isdigit(format[*index]) && format[*index] != 0 && node->width == 0)
+			node->width = ft_atoi(format + *index);
 		if (format[*index] == '.')
 		{
 			node->flag |= ACC;
 			node->acc = ft_atoi(format + *index + 1);
-			while (ft_isdigit(format[*index]))
+			while (ft_isdigit(format[*index + 1]))
 				(*index)++;
 		}
-		if (ft_isdigit(format[*index]) && format[*index] != 0 && node->width == 0)
-			node->width = ft_atoi(format + *index);
 		ft_parse_mod(node, format + *index);
 		(*index)++;
 	}
@@ -98,7 +98,6 @@ size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap, size_t *index
 		free(node);
 		return (0);
 	}
-	//ft_print_node(node);
 	(*index)++;
 	node->ret += ft_strlen(node->str);
 	lpf = ft_lpf_push(lpf, node);
