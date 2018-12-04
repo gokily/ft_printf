@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2018/12/03 17:59:58 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 10:53:33 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,6 @@ size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap, size_t *index
 		return (0);
 	}
 	(*index)++;
-	node->ret += ft_strlen(node->str);
 	lpf = ft_lpf_push(lpf, node);
 	return (1);
 }

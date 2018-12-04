@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_addlpf_str.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/04 11:52:08 by gly               #+#    #+#             */
+/*   Updated: 2018/12/04 11:52:18 by gly              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 size_t ft_addlpf_str(t_lpf **lpf, const char *format, size_t index)
@@ -12,7 +24,7 @@ size_t ft_addlpf_str(t_lpf **lpf, const char *format, size_t index)
 		i++;
 	if(!(node->str = ft_strndup(format + index, i - index)))
 		return (0);
-	node->ret = i - index;
+	node->len = i - index;
 	lpf = ft_lpf_push(lpf, node);
 	return (i);
 }

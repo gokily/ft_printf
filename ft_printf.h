@@ -23,6 +23,7 @@
 # define HEX_U		1 << 13
 # define HEX_PTR	1 << 14
 # define LDOUBLE	1 << 15
+# define BUFFSIZE	1000
 
 typedef struct	s_lpf
 {
@@ -30,14 +31,14 @@ typedef struct	s_lpf
 	int				flag;
 	size_t			width;
 	size_t			acc;
-	size_t			ret;
+	size_t			len;
 	char			type;
 	char			*str;
 }				t_lpf;
 
 int			ft_printf(const char *format, ...);
 
-void		ft_printlpf_all(t_lpf *lpf, int *ret);
+long long	ft_printlpf_all(t_lpf *lpf);
 t_lpf		*ftlpf_new(void);
 t_lpf 		**ft_lpf_push(t_lpf **lpf, t_lpf *node);
 void 		ft_rmlpf_all(t_lpf *lst);

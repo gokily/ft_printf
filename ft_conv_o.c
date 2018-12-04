@@ -1,10 +1,12 @@
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb)
+static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb, size_t len)
 {
-	if (node->flag & POUND && nb != 0)
+	if (node->flag & POUND)
 	{
+		if ((nb != 0 && len > node->acc + 1)
+				|| (nb == 0 && node->flag & ACC && node->acc == 0))
 		return (ft_strjoinfree("0", ret, RIGHT));
 	}
 	return (ret);
@@ -14,27 +16,27 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, unsigned long long
 {
 	size_t	n;
 
-	len += node->flag & POUND ? 2 : 0;
+	len += node->flag & POUND ? 1 : 0;
 	n = node->width > len ? node->width - len : 0;
 	if (n != 0)
 	{
 		if (node->flag & MINUS)
 		{
-			ret = ft_checkpound(ret, node, nb);
+			ret = ft_checkpound(ret, node, nb, len);
 			return (ft_strjoinfree(ret, ft_strspace(n), RIGHT | LEFT));
 		}
 		else if ((node->flag & ZERO) && !(node->flag & ACC))
 		{
 			ret = ft_strjoinfree(ft_strzero(n), ret, RIGHT | LEFT);
-			return (ft_checkpound(ret, node, nb));
+			return (ft_checkpound(ret, node, nb, len));
 		}
 		else
 		{
-			ret = ft_checkpound(ret, node, nb);
+			ret = ft_checkpound(ret, node, nb, len);
 			return (ft_strjoinfree(ft_strspace(n), ret, RIGHT | LEFT));
 		}
 	}
-	return (ft_checkpound(ret, node, nb));
+	return (ft_checkpound(ret, node, nb, len));
 }
 
 static char	*ft_conv_o2(unsigned long long nb, t_lpf *node)
@@ -74,5 +76,7 @@ char	*ft_conv_o(t_lpf *node, va_list ap)
 		ret = ft_conv_o2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_o2(va_arg(ap, unsigned int), node);
+	if (ret != NULL)
+		node->len = ft_strlen(ret);
 	return (ret);
 }

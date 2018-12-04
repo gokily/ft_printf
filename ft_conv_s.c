@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:49:28 by gly               #+#    #+#             */
-/*   Updated: 2018/12/03 18:01:04 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 10:52:28 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,16 @@ char	*ft_conv_s(t_lpf *node, va_list ap)
 {
 	char	*str;
 
-	if (!(str = ft_strdup(va_arg(ap, char *))))
+	str = va_arg(ap, char *);
+	if (str == NULL)
+	{
+		if (!(str = ft_strdup("(null)")))
+			return (NULL);
+	}
+	else if (!(str = ft_strdup(str)))
 		return (NULL);
-	return (ft_add_width(str, node));
+	if (!(str = ft_add_width(str, node)))
+		return (NULL);
+	node->len = ft_strlen(str);
+	return (str);
 }

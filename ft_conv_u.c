@@ -40,6 +40,7 @@ static char	*ft_conv_u2(unsigned long long nb, t_lpf *node)
 	}
 	if (!(ret = ft_add_width(ret, node, len)))
 		return (NULL);
+	node->len = ft_strlen(ret);
 	return (ret);
 }
 

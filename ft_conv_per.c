@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_conv_per.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/04 10:50:07 by gly               #+#    #+#             */
+/*   Updated: 2018/12/04 10:50:37 by gly              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include <stdlib.h>
 
@@ -37,5 +49,6 @@ char	*ft_conv_per(t_lpf *node, va_list ap)
 	}
 	if (!(ret = ft_add_width(ret, node, len)))
 		return (NULL);
+	node->len = ft_strlen(ret);
 	return (ret);
 }

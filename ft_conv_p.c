@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_conv_p.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/04 10:49:42 by gly               #+#    #+#             */
+/*   Updated: 2018/12/04 10:50:03 by gly              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 
 char	*ft_conv_p(t_lpf *node, va_list ap)
@@ -17,5 +29,6 @@ char	*ft_conv_p(t_lpf *node, va_list ap)
 			ft_strjoinfree(ret, ft_strspace(node->width - addr), RIGHT | LEFT) :
 			ft_strjoinfree(ft_strspace(node->width - addr), ret, RIGHT | LEFT));
 	}
+	node->len = ft_strlen(ret);
 	return (ret);
 }

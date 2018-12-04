@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 14:15:31 by gly               #+#    #+#             */
-/*   Updated: 2018/12/03 16:57:07 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 14:31:25 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,10 @@
 
 static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb)
 {
-	if ((node->flag & POUND) && nb != 0)
+	if (node->flag & POUND && nb != 0)
+	{
 		return (ft_strjoinfree(node->flag & CAPS ? "0X" : "0x", ret, RIGHT));
+	}
 	return (ret);
 }
 
@@ -84,6 +86,8 @@ char	*ft_conv_x(t_lpf *node, va_list ap)
 		ret = ft_conv_x2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_x2(va_arg(ap, unsigned int), node);
+	if (ret != NULL)
+		node->len = ft_strlen(ret);
 	return (ret);
 }
 
@@ -98,5 +102,7 @@ char	*ft_conv_X(t_lpf *node, va_list ap)
 		ret = ft_conv_x2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_x2(va_arg(ap, unsigned int), node);
+	if (ret != NULL)
+		node->len = ft_strlen(ret);
 	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:46:41 by gly               #+#    #+#             */
-/*   Updated: 2018/12/03 18:00:56 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 11:53:26 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,10 @@ int		ft_printf(const char *format, ...)
 {
 	t_lpf		*lst;
 	va_list		ap;
-	size_t			index;
-	int			ret;
+	size_t		index;
+	long long	ret;
 
 	index = 0;
-	ret = 0;
 	lst = NULL;
 	va_start(ap, format);
 	while (format[index] != '\0')
@@ -36,8 +35,9 @@ int		ft_printf(const char *format, ...)
 		}
 		index = ft_addlpf_str(&lst, format, index);
 	}
+	ft_addlpf_str(&lst, format, index);
 	va_end(ap);
-	ft_printlpf_all(lst, &ret);
+	ret = ft_printlpf_all(lst);
 	ft_rmlpf_all(lst);
 	return (ret);
 }
