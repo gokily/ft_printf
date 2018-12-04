@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 12:12:59 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 10:54:46 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:01:45 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static char	*ft_fill_c(t_lpf *node, char *ret, char c, size_t len)
 	return (ret);
 }
 
-char	*ft_conv_c(t_lpf *node, va_list ap)
+char		*ft_conv_c(t_lpf *node, va_list ap)
 {
 	char	*ret;
 	size_t	len;

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:49:28 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 10:52:28 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:00:30 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,10 @@ char	*ft_add_width(char *str, t_lpf *node)
 	if (len >= node->width)
 		return (str);
 	if (node->flag & MINUS)
-		return (ft_strjoinfree(str, ft_strspace(node->width - len), RIGHT | LEFT));
+	{
+		return (ft_strjoinfree(str, ft_strspace(node->width - len),
+					RIGHT | LEFT));
+	}
 	return (ft_strjoinfree(ft_strspace(node->width - len), str, RIGHT | LEFT));
 }
 

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 10:53:33 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:43:58 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_parse_mod(t_lpf *node, const char *format)
 
 static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)
 {
-	while (format[*index] && ft_is_arg(format[*index]) == 0)
+	while (format[*index] && ft_strchr(CONV, format[*index]) == NULL)
 	{
 		if (format[*index] == '#')
 			node->flag |= POUND;
@@ -63,22 +63,23 @@ static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)
 			node->flag |= SPACE;
 		if (format[*index] == '0' && ft_isdigit(format[*index - 1]) == 0)
 			node->flag |= ZERO;
-		if (ft_isdigit(format[*index]) && format[*index] != 0 && node->width == 0)
-			node->width = ft_atoi(format + *index);
+		if (ft_isdigit(format[*index]) && format[*index] != 0
+				&& node->width == 0)
+			node->width = ft_atoi_pf(format, index);
 		if (format[*index] == '.')
 		{
 			node->flag |= ACC;
-			node->acc = ft_atoi(format + *index + 1);
-			while (ft_isdigit(format[*index + 1]))
-				(*index)++;
+			(*index)++;
+			node->acc = ft_atoi_pf(format, index);
 		}
 		ft_parse_mod(node, format + *index);
 		(*index)++;
 	}
-	return ((ft_is_arg(format[*index])) ? format[*index] : 0);
+	return (ft_strchr(CONV, format[*index]) != NULL ? format[*index] : 0);
 }
 
-size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap, size_t *index)
+size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
+		size_t *index)
 {
 	t_lpf *node;
 

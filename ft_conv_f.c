@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 08:48:23 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 10:49:21 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:03:28 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,14 +66,14 @@ static char	*ft_assemblefloat(long double nb, long long_nb, t_lpf *node)
 	}
 	ret = ft_strjoinfree(ft_ll2a_pf(long_nb), ".", LEFT);
 	ret = ft_strjoinfree(ret, fract, LEFT | RIGHT);
-	return (ret);	
+	return (ret);
 }
 
 static char	*ft_conv_f2(long double nb, t_lpf *node)
 {
 	char	*ret;
-	size_t		len;
-	long 		long_nb;
+	size_t	len;
+	long	long_nb;
 
 	long_nb = ft_intpart_double(nb);
 	nb -= (long double)long_nb;
@@ -97,7 +97,7 @@ static char	*ft_conv_f2(long double nb, t_lpf *node)
 	return (ret);
 }
 
-char	*ft_conv_f(t_lpf *node, va_list ap)
+char		*ft_conv_f(t_lpf *node, va_list ap)
 {
 	char	*ret;
 

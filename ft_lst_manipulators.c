@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:20:09 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 11:53:55 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:33:44 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ long long	ft_printlpf_all(t_lpf *elem)
 		return (-1);
 	while (elem)
 	{
-//	ft_print_node(elem);
 		if (i + elem->len > BUFFSIZE)
 		{
 			write(1, str, i);
@@ -37,15 +36,12 @@ long long	ft_printlpf_all(t_lpf *elem)
 		i += elem->len;
 		elem = elem->next;
 	}
-	if (i != 0)
-	{
+	if (i != 0 && (ret = ret + i))
 		write(1, str, i);
-		ret += i;
-	}
 	return (ret);
 }
 
-t_lpf		*ft_lpfnew()
+t_lpf		*ft_lpfnew(void)
 {
 	t_lpf	*new;
 

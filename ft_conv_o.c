@@ -1,18 +1,32 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_conv_o.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/04 14:56:01 by gly               #+#    #+#             */
+/*   Updated: 2018/12/04 14:56:14 by gly              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_printf.h"
 #include <stdlib.h>
 
-static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb, size_t len)
+static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb,
+		size_t len)
 {
 	if (node->flag & POUND)
 	{
 		if ((nb != 0 && len > node->acc + 1)
 				|| (nb == 0 && node->flag & ACC && node->acc == 0))
-		return (ft_strjoinfree("0", ret, RIGHT));
+			return (ft_strjoinfree("0", ret, RIGHT));
 	}
 	return (ret);
 }
 
-static char	*ft_add_width(char *ret, t_lpf *node, size_t len, unsigned long long nb)
+static char	*ft_add_width(char *ret, t_lpf *node, size_t len,
+		unsigned long long nb)
 {
 	size_t	n;
 
@@ -42,7 +56,7 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, unsigned long long
 static char	*ft_conv_o2(unsigned long long nb, t_lpf *node)
 {
 	char	*ret;
-	size_t		len;
+	size_t	len;
 
 	if (node->flag & CHAR)
 		nb = (char)nb;
@@ -66,13 +80,13 @@ static char	*ft_conv_o2(unsigned long long nb, t_lpf *node)
 	return (ret);
 }
 
-char	*ft_conv_o(t_lpf *node, va_list ap)
+char		*ft_conv_o(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
 	if (node->flag & LLONG)
 		ret = ft_conv_o2(va_arg(ap, unsigned long long), node);
-	else if(node->flag & LONG)
+	else if (node->flag & LONG)
 		ret = ft_conv_o2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_o2(va_arg(ap, unsigned int), node);

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 14:15:31 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 14:31:25 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 14:58:25 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb)
 	return (ret);
 }
 
-static char	*ft_add_width(char *ret, t_lpf *node, size_t len, unsigned long long nb)
+static char	*ft_add_width(char *ret, t_lpf *node, size_t len,
+		unsigned long long nb)
 {
 	size_t	n;
 
@@ -76,13 +77,13 @@ static char	*ft_conv_x2(unsigned long long nb, t_lpf *node)
 	return (ret);
 }
 
-char	*ft_conv_x(t_lpf *node, va_list ap)
+char		*ft_conv_x(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
 	if (node->flag & LLONG)
 		ret = ft_conv_x2(va_arg(ap, unsigned long long), node);
-	else if(node->flag & LONG)
+	else if (node->flag & LONG)
 		ret = ft_conv_x2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_x2(va_arg(ap, unsigned int), node);
@@ -91,14 +92,14 @@ char	*ft_conv_x(t_lpf *node, va_list ap)
 	return (ret);
 }
 
-char	*ft_conv_X(t_lpf *node, va_list ap)
+char		*ft_conv_capx(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
 	node->flag |= CAPS;
 	if (node->flag & LLONG)
 		ret = ft_conv_x2(va_arg(ap, unsigned long long), node);
-	else if(node->flag & LONG)
+	else if (node->flag & LONG)
 		ret = ft_conv_x2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_x2(va_arg(ap, unsigned int), node);

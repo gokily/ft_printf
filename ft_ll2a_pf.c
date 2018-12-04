@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 14:33:52 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 14:46:52 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:31:45 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ static int	digit_num(long long n)
 char		*ft_ll2a_pf(long long n)
 {
 	long long	power;
-	char	*ptr;
-	size_t	i;
+	char		*ptr;
+	size_t		i;
 
 	power = (n < 0) ? -1 : 1;
 	power = n > 9 || n < -9 ? power * 10 : power;

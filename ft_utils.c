@@ -6,22 +6,12 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:51:51 by gly               #+#    #+#             */
-/*   Updated: 2018/11/27 15:24:50 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/04 15:37:35 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdlib.h>
-
-int		ft_is_arg(char c)
-{
-	char	buf[] = "%cspdiouxXf";
-	int		i;
-
-	i = -1;
-	while (buf[++i]) if (buf[i] == c) return (1);
-	return (0);
-}
 
 char	*ft_strspace(size_t len)
 {
