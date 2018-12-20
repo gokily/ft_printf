@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 08:48:23 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 15:03:28 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 16:58:04 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ static char	*ft_assemblefloat(long double nb, long long_nb, t_lpf *node)
 	i = 0;
 	acc = node->flag & ACC ? node->acc : 6;
 	nb = ft_round_double(nb, acc);
-	long_nb = (long)nb;
 	if (!(fract = ft_strspace(acc)))
 		return (NULL);
 	while (i < acc)
@@ -71,16 +70,17 @@ static char	*ft_assemblefloat(long double nb, long long_nb, t_lpf *node)
 
 static char	*ft_conv_f2(long double nb, t_lpf *node)
 {
-	char	*ret;
-	size_t	len;
-	long	long_nb;
+	char		*ret;
+	size_t		len;
+	long long	long_nb;
+	long double	fract;
 
 	long_nb = ft_intpart_double(nb);
-	nb -= (long double)long_nb;
+	fract = nb < 0 ? -(nb - (long double)long_nb) : nb - (long double)long_nb;
 	len = ft_longlonglen_base(long_nb, 10) + node->acc + 1;
 	if (node->flag & ACC && node->acc == 0)
 	{
-		ret = ft_ll2a_pf(long_nb + (nb * 10 >= 5 ? 1 : 0));
+		ret = ft_ll2a_pf(long_nb + (fract * 10 >= 5 ? 1 : 0));
 		if (node->flag & POUND)
 		{
 			len++;
@@ -88,7 +88,7 @@ static char	*ft_conv_f2(long double nb, t_lpf *node)
 		}
 	}
 	else
-		ret = ft_assemblefloat(nb, long_nb, node);
+		ret = ft_assemblefloat(fract, long_nb, node);
 	len += node->acc;
 	len += (nb < 0 || node->flag & PLUS || node->flag & SPACE) ? 1 : 0;
 	if (!(ret = ft_add_width(ret, node, len, nb)))

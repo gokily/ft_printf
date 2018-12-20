@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:01:19 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 15:01:21 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 15:59:38 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,14 @@ static char	*ft_conv_u2(unsigned long long nb, t_lpf *node)
 	size_t	len;
 
 	if (node->flag & CHAR)
-		nb = (char)nb;
+		nb = (unsigned char)nb;
 	else if (node->flag & SHORT)
-		nb = (short)nb;
-	len = ft_ulllen_base(nb, 10);
-	ret = ft_ull2a(nb);
+		nb = (unsigned short)nb;
+	ret = nb == 0 && node->flag & ACC && node->acc == 0 ? ft_strdup("") :
+		ft_ull2a(nb);
 	if (!ret)
 		return (NULL);
+	len = ft_strlen(ret);
 	if (node->acc > len)
 	{
 		ret = ft_strjoinfree(ft_strzero(node->acc - len), ret, LEFT | RIGHT);
@@ -66,5 +67,18 @@ char		*ft_conv_u(t_lpf *node, va_list ap)
 		ret = ft_conv_u2(va_arg(ap, unsigned long), node);
 	else
 		ret = ft_conv_u2(va_arg(ap, unsigned int), node);
+	return (ret);
+}
+
+char		*ft_conv_capu(t_lpf *node, va_list ap)
+{
+	char	*ret;
+
+	if (node->flag & LLONG)
+		ret = ft_conv_u2(va_arg(ap, unsigned long long), node);
+	else if (node->flag & LONG)
+		ret = ft_conv_u2(va_arg(ap, unsigned long), node);
+	else
+		ret = ft_conv_u2(va_arg(ap, unsigned long), node);
 	return (ret);
 }

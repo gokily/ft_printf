@@ -6,11 +6,9 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 09:08:22 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 13:09:01 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 16:35:59 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 long long	ft_intpart_double(long double nb)
 {
@@ -24,8 +22,16 @@ long long	ft_intpart_double(long double nb)
 	while (power >= 1)
 	{
 		i = i * 10 + nb / power;
-		while (nb >= power)
-			nb -= power;
+		if (nb >= 0)
+		{
+			while (nb >= power)
+				nb -= power;
+		}
+		else
+		{
+			while (nb <= -power)
+				nb += power;
+		}
 		power /= 10;
 	}
 	return (i);

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/08 14:40:54 by gly               #+#    #+#             */
-/*   Updated: 2018/11/20 16:51:51 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 14:42:26 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,13 @@ int		ft_intlen_base(int n, int base)
 	int		power;
 
 	i = 1;
-	power = n < 0 ? -base : base;
-	while ((n / power) != 0)
+	power = n < 0 ? -1 : 1;
+	if (n <= -base || n >= base)
+	{
+		i++;
+		power *= base;
+	}
+	while ((n / power) >= base)
 	{
 		i++;
 		power *= base;

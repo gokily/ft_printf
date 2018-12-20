@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 12:47:46 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 17:07:32 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 # define FT_PRINTF_H
 # include "libft/libft.h"
 # include <stdarg.h>
-
-
-# include <stdio.h>
 
 # define POUND		1
 # define ZERO		1 << 1
@@ -35,7 +32,7 @@
 # define HEX_PTR	1 << 14
 # define LDOUBLE	1 << 15
 # define BUFFSIZE	1000
-# define CONV		"csuidofXxpb%"
+# define CONV		"csuUidoOfFXxpb%"
 
 typedef struct		s_lpf
 {
@@ -51,16 +48,15 @@ typedef struct		s_lpf
 int					ft_printf(const char *format, ...);
 
 long long			ft_printlpf_all(t_lpf *lpf);
-t_lpf				*ftlpf_new(void);
-t_lpf 				**ft_lpf_push(t_lpf **lpf, t_lpf *node);
-void 				ft_rmlpf_all(t_lpf *lst);
-void 				ft_error(t_lpf *lst);
+t_lpf				*ft_lpfnew(void);
+t_lpf				**ft_lpf_push(t_lpf **lpf, t_lpf *node);
+void				ft_rmlpf_all(t_lpf *lst);
+void				ft_error(t_lpf *lst);
 
 size_t				ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
 		size_t *index);
-size_t				ft_addlpf_str(t_lpf **lpf, const char *format, size_t index);
-
-t_lpf				*ft_lpfnew(void);
+size_t				ft_addlpf_str(t_lpf **lpf, const char *format,
+		size_t index);
 
 int					ft_is_arg(char c);
 char				*ft_strspace(size_t len);
@@ -72,6 +68,6 @@ char				*ft_format(char *output, int len, t_lpf *node);
 char				*ft_itoa_pf(long long n, t_lpf *node);
 size_t				ft_atoi_pf(const char *str, size_t *index);
 char				*ft_ll2a_pf(long long n);
-void				 ft_print_node(t_lpf *node);
+void				ft_print_node(t_lpf *node);
 
 #endif
