@@ -6,32 +6,76 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/20 16:28:20 by gly               #+#    #+#             */
-/*   Updated: 2018/11/20 16:51:44 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 13:23:36 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-char	*ft_convertbase(int n, char *base)
+static int	valid_base(char *base)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	while (base[i + 1] != '\0')
+	{
+		j = i + 1;
+		if (base[i] == '-')
+			return (0);
+		while (base[j] != '\0')
+		{
+			if (base[i] == base[j])
+				return (0);
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+static int	digit_num(int n, char *base)
+{
+	if (n < 0)
+		return (ft_intlen_base(n, ft_strlen(base)) + 1);
+	else
+		return (ft_intlen_base(n, ft_strlen(base)));
+}
+
+static int	ft_putsign(char *ptr, int n)
+{
+	if (n < 0)
+	{
+		ptr[0] = '-';
+		return (1);
+	}
+	return (0);
+}
+
+char		*ft_convertbase(int n, char *base)
 {
 	int		i;
-	char	*nb;
 	int		power;
+	char	*ptr;
 
-	i = ft_inlen_base(n, strlen(base));
-	i = n < 0 ? i + 1 : i;
-	if (!(nb = malloc(sizeof(char) * (i + 1))))
+	if (valid_base(base) == 0)
 		return (NULL);
-	nb[i] = '\0';
-	i = n < 0 ? 1 : 0;
-	if (n < 0)
-		nb[0] = '-';
-	power = n < 0 ? -base : base;
+	power = (n < 0) ? -1 : 1;
+	power = n > 9 || n < -9 ? power * 10 : power;
 	while (n / power > 9)
-		power *= base;
-	while (power > 0)
+		power *= 10;
+	if (!(ptr = (char *)malloc(sizeof(char) * (digit_num(n, base) + 1))))
+		return (NULL);
+	i = 0;
+	i = ft_putsign(ptr, n);
+	while (power != 0)
 	{
-		nb[i] = n / power;
-		power /= base;
-
-
+		ptr[i] = base[n / power];
+		n %= power;
+		power /= 10;
+		i++;
+	}
+	ptr[i] = '\0';
+	return (ptr);
+}

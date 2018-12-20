@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:29:36 by gly               #+#    #+#             */
-/*   Updated: 2018/12/03 11:48:13 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 13:20:52 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,7 @@ t_list				*ft_lstlast(t_list *alst);
 t_list				*ft_lstpop(t_list **alst);
 void				ft_lstpush(t_list *alst, t_list *elem);
 
+char				*ft_convertbase(int n, char *base);
 char				*ft_itoa(int n);
 char				*ft_ll2a(long long n);
 char				*ft_ull2a(unsigned long long n);

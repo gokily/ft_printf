@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 12:12:59 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 14:45:49 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 12:44:38 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, long long nb)
 static char	*ft_conv_d2(long long nb, t_lpf *node)
 {
 	char	*ret;
-	size_t		len;
+	size_t	len;
 
 	if (node->flag & CHAR)
 		nb = (char)nb;
@@ -77,7 +77,7 @@ char	*ft_conv_d(t_lpf *node, va_list ap)
 
 	if (node->flag & LLONG)
 		ret = ft_conv_d2(va_arg(ap, long long), node);
-	else if(node->flag & LONG)
+	else if (node->flag & LONG)
 		ret = ft_conv_d2(va_arg(ap, long), node);
 	else
 		ret = ft_conv_d2(va_arg(ap, int), node);

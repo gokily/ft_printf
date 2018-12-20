@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_ull2a_base.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/12/20 12:59:38 by gly               #+#    #+#             */
+/*   Updated: 2018/12/20 13:07:25 by gly              ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "libft.h"
 
@@ -25,8 +37,8 @@ char		*ft_ull2a_base(unsigned long long nb, char *base)
 {
 	unsigned long long	power;
 	unsigned long long	n_base;
-	char	*ret;
-	size_t	i;
+	char				*ret;
+	size_t				i;
 
 	power = 1;
 	n_base = (unsigned long long)ft_strlen(base);
@@ -43,7 +55,7 @@ char		*ft_ull2a_base(unsigned long long nb, char *base)
 		nb %= power;
 		power /= n_base;
 		i++;
-	}	
+	}
 	ret[i] = '\0';
 	return (ret);
 }

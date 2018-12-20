@@ -6,14 +6,12 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 15:54:02 by gly               #+#    #+#             */
-/*   Updated: 2018/12/03 16:12:29 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 13:05:53 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "libft.h"
-
-#include <stdio.h>
 
 static int	valid_base(char *base)
 {
@@ -57,7 +55,7 @@ char		*ft_size_t2a_base(size_t nb, char *base)
 		nb %= power;
 		power /= n_base;
 		i++;
-	}	
+	}
 	ret[i] = '\0';
 	return (ret);
 }

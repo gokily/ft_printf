@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_round_double.c                                  :+:      :+:    :+:   */
+/*   ft_atoi_pf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 11:40:13 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 13:07:07 by gly              ###   ########.fr       */
+/*   Created: 2018/12/04 15:09:16 by gly               #+#    #+#             */
+/*   Updated: 2018/12/04 15:23:00 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 
-long double	ft_round_double(long double nb, size_t acc)
+size_t	ft_atoi_pf(const char *str, size_t *index)
 {
 	size_t		i;
-	long double	tmp;
+	size_t		nb;
 
-	i = 0;
-	tmp = nb;
-	while (i < acc)
+	i = *index;
+	nb = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		tmp *= 10;
-		tmp = tmp - (long long)tmp;
+		nb *= 10;
+		nb += str[i] - 48;
 		i++;
 	}
-	if (tmp < 0.5)
-		return (nb);
-	tmp = 1;
-	i = 0;
-	while (i < acc)
-	{
-		tmp = (long double)tmp / 10;
-		i++;
-	}
-	return (tmp + nb);
+	*index = i - 1;
+	return (nb);
 }

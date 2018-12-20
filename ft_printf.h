@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 15:43:09 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/20 12:47:46 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@
 # define LDOUBLE	1 << 15
 # define BUFFSIZE	1000
 # define CONV		"csuidofXxpb%"
-typedef struct	s_lpf
+
+typedef struct		s_lpf
 {
 	struct s_lpf	*next;
 	int				flag;
@@ -45,32 +46,32 @@ typedef struct	s_lpf
 	size_t			len;
 	char			type;
 	char			*str;
-}				t_lpf;
+}					t_lpf;
 
-int				ft_printf(const char *format, ...);
+int					ft_printf(const char *format, ...);
 
-long long		ft_printlpf_all(t_lpf *lpf);
-t_lpf			*ftlpf_new(void);
-t_lpf 			**ft_lpf_push(t_lpf **lpf, t_lpf *node);
-void 			ft_rmlpf_all(t_lpf *lst);
-void 			ft_error(t_lpf *lst);
+long long			ft_printlpf_all(t_lpf *lpf);
+t_lpf				*ftlpf_new(void);
+t_lpf 				**ft_lpf_push(t_lpf **lpf, t_lpf *node);
+void 				ft_rmlpf_all(t_lpf *lst);
+void 				ft_error(t_lpf *lst);
 
-size_t			ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
+size_t				ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
 		size_t *index);
-size_t			ft_addlpf_str(t_lpf **lpf, const char *format, size_t index);
+size_t				ft_addlpf_str(t_lpf **lpf, const char *format, size_t index);
 
-t_lpf			*ft_lpfnew(void);
+t_lpf				*ft_lpfnew(void);
 
-int				ft_is_arg(char c);
-char			*ft_strspace(size_t len);
-char			*ft_strzero(size_t len);
-char			*ft_convert_s(char *str, t_lpf *node);
-char			*ft_convert_c(int c, t_lpf *node);
-char			*ft_convert_p(unsigned long ptr, t_lpf *node);
-char			*ft_format(char *output, int len, t_lpf *node);
-char			*ft_itoa_pf(long long n, t_lpf *node);
-size_t			ft_atoi_pf(const char *str, size_t *index);
-char			*ft_ll2a_pf(long long n);
-void			 ft_print_node(t_lpf *node);
+int					ft_is_arg(char c);
+char				*ft_strspace(size_t len);
+char				*ft_strzero(size_t len);
+char				*ft_convert_s(char *str, t_lpf *node);
+char				*ft_convert_c(int c, t_lpf *node);
+char				*ft_convert_p(unsigned long ptr, t_lpf *node);
+char				*ft_format(char *output, int len, t_lpf *node);
+char				*ft_itoa_pf(long long n, t_lpf *node);
+size_t				ft_atoi_pf(const char *str, size_t *index);
+char				*ft_ll2a_pf(long long n);
+void				 ft_print_node(t_lpf *node);
 
 #endif

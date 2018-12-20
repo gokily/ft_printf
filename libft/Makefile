@@ -6,7 +6,7 @@
 #    By: gly <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 13:31:32 by gly               #+#    #+#              #
-#    Updated: 2018/12/03 11:47:47 by gly              ###   ########.fr        #
+#    Updated: 2018/12/20 13:22:41 by gly              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ SRC = ft_atoi.c		ft_bzero.c		ft_isalnum.c	\
 	  ft_tolower.c	ft_toupper.c \
 	  ft_intabs.c	ft_strskipc.c	ft_intlen_base.c ft_size_tlen_base.c	\
 	  ft_lstlast.c	ft_lstpop.c		ft_lstpush.c	\
+	  ft_convertbase.c	\
 	  ft_size_t2a_base.c	\
 	  ft_ull2a_base.c	\
 	  ft_longlonglen_base.c	\
