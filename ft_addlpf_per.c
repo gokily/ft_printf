@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 14:28:26 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/28 11:09:30 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ static int	ft_parse_mod(t_lpf *node, const char *format)
 
 static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)
 {
-	while (format[*index] && ft_strchr(CONV, format[*index]) == NULL)
+	while (format[*index] && ft_strchr(FLAG, format[*index]))
 	{
 		if (format[*index] == '#')
 			node->flag |= POUND;
@@ -87,10 +87,9 @@ size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
 		return (0);
 	if (!(node->type = ft_parse_flag(node, format, index)))
 	{
-		if (node->str)
-			free(node->str);
 		free(node);
-		return (0);
+		*index = ft_addlpf_str(lpf, format, *index);
+		return (1);
 	}
 	if (!(node->str = ft_va2str(node, ap)))
 	{

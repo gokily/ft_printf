@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 17:07:32 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/28 11:03:00 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@
 # define LDOUBLE	1 << 15
 # define BUFFSIZE	1000
 # define CONV		"csuUidoOfFXxpb%"
+# define FLAG		"#+- 0123456789.hlL"
 
 typedef struct		s_lpf
 {

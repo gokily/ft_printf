@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:46:41 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 17:03:45 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/28 10:38:10 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		ft_printf(const char *format, ...)
 	va_start(ap, format);
 	while (format[index] != '\0')
 	{
-		if (format[index++] == '%')
+		if (format[index] == '%' && ++index)
 		{
 			if (!ft_addlpf_per(&lst, format, ap, &index))
 			{
