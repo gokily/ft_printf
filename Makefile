@@ -6,7 +6,7 @@
 #    By: gly <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 12:50:46 by gly               #+#    #+#              #
-#    Updated: 2018/12/20 13:45:55 by gly              ###   ########.fr        #
+#    Updated: 2018/12/28 12:23:48 by gly              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,7 @@ SRC		=	ft_conv_c.c	\
 			ft_conv_d.c	\
 			ft_conv_f.c	\
 			ft_conv_o.c	\
+			ft_conv_b.c	\
 			ft_conv_p.c	\
 			ft_conv_per.c	\
 			ft_conv_s.c	\
@@ -48,7 +49,7 @@ $(LIBFT) :
 	make -C libft
 	cp $(LIBFT) $(NAME)
 
-%.o		:	%.c	./ft_printf.h	./Makefile
+%.o		:	%.c	./ft_printf.h	./ft_convtab.h	./Makefile
 	$(CC) $(CFLAGS) -o $@ -c $<
 
 clean	:

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 12:10:58 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 16:08:23 by gly              ###   ########.fr       */
+/*   Updated: 2018/12/28 11:40:23 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,14 @@ char			*ft_conv_x(t_lpf *node, va_list ap);
 char			*ft_conv_capx(t_lpf *node, va_list ap);
 char			*ft_conv_f(t_lpf *node, va_list ap);
 char			*ft_conv_per(t_lpf *node, va_list ap);
+char			*ft_conv_b(t_lpf *node, va_list ap);
 
 t_conv	g_convtab[] = {{'c', &ft_conv_c}, \
 	{'s', &ft_conv_s}, \
 	{'p', &ft_conv_p}, \
 	{'d', &ft_conv_d}, \
 	{'i', &ft_conv_d}, \
+	{'b', &ft_conv_b}, \
 	{'u', &ft_conv_u}, \
 	{'U', &ft_conv_capu}, \
 	{'o', &ft_conv_o}, \
