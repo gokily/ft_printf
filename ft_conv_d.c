@@ -77,8 +77,14 @@ char		*ft_conv_d(t_lpf *node, va_list ap)
 
 	if (node->flag & LLONG)
 		ret = ft_conv_d2(va_arg(ap, long long), node);
+	else if (node->flag & JAY)
+		ret = ft_conv_d2(va_arg(ap, intmax_t), node);
+	else if (node->flag & ZED)
+		ret = ft_conv_d2(va_arg(ap, size_t), node);
 	else if (node->flag & LONG)
 		ret = ft_conv_d2(va_arg(ap, long), node);
+	else if (node->flag & TEE)
+		ret = ft_conv_d2(va_arg(ap, ptrdiff_t), node);
 	else
 		ret = ft_conv_d2(va_arg(ap, int), node);
 	if (ret != NULL)
