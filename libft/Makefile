@@ -47,7 +47,7 @@ all: $(NAME)
 OBJ = $(SRC:.c=.o)
 
 %.o : %.c ./libft.h
-	gcc -Wall -Wextra -Werror -o $@ -c $<
+	gcc -Wall -Wextra -Werror -fsanitize=address -o $@ -c $<
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)

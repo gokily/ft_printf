@@ -28,7 +28,7 @@ static char	*ft_va2str(t_lpf *node, va_list ap)
 	return (NULL);
 }
 
-static int	ft_parse_mod(t_lpf *node, const char *format)
+static void	ft_parse_mod(t_lpf *node, const char *format)
 {
 	if (format[0] == 'h')
 	{
@@ -44,9 +44,15 @@ static int	ft_parse_mod(t_lpf *node, const char *format)
 		else if ((node->flag & LLONG) == 0)
 			node->flag |= LONG;
 	}
-	if (format[0] == 'L')
+	if (*format == 'L')
 		node->flag |= LDOUBLE;
-	return (1);
+	if (*format == 'j')
+		node->flag |= JAY;
+	if (*format == 'z')
+		node->flag |= ZED;
+	if (*format == 't')
+		node->flag |= TEE;
+	return ;
 }
 
 static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)

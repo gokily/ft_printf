@@ -14,6 +14,8 @@
 # define FT_PRINTF_H
 # include "libft/libft.h"
 # include <stdarg.h>
+#include <stddef.h>
+#include <stdint.h>
 
 # define POUND		1
 # define ZERO		1 << 1
@@ -26,14 +28,13 @@
 # define SHORT		1 << 8
 # define LONG		1 << 9
 # define LLONG		1 << 10
-# define OCTAL		1 << 11
-# define HEX_L		1 << 12
-# define HEX_U		1 << 13
-# define HEX_PTR	1 << 14
-# define LDOUBLE	1 << 15
+# define LDOUBLE	1 << 11
+# define JAY		1 << 12
+# define ZED		1 << 13
+# define TEE		1 << 14
 # define BUFFSIZE	1000
 # define CONV		"csuUidoOfFXxpb%"
-# define FLAG		"#+- 0123456789.hlL"
+# define FLAG		"#+- 0123456789.hlLjzt"
 
 typedef struct		s_lpf
 {
@@ -62,10 +63,6 @@ size_t				ft_addlpf_str(t_lpf **lpf, const char *format,
 int					ft_is_arg(char c);
 char				*ft_strspace(size_t len);
 char				*ft_strzero(size_t len);
-char				*ft_convert_s(char *str, t_lpf *node);
-char				*ft_convert_c(int c, t_lpf *node);
-char				*ft_convert_p(unsigned long ptr, t_lpf *node);
-char				*ft_format(char *output, int len, t_lpf *node);
 char				*ft_itoa_pf(long long n, t_lpf *node);
 size_t				ft_atoi_pf(const char *str, size_t *index);
 char				*ft_ll2a_pf(long long n);
