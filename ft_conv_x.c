@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 14:15:31 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 14:59:50 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 11:54:00 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len,
 {
 	size_t	n;
 
-	len += node->flag & POUND ? 2 : 0;
+	len += node->flag & POUND && nb != 0 ? 2 : 0;
 	n = node->width > len ? node->width - len : 0;
 	if (n != 0)
 	{
@@ -81,10 +81,16 @@ char		*ft_conv_x(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
-	if (node->flag & LLONG)
+	if (node->flag & JAY)
+		ret = ft_conv_x2(va_arg(ap, uintmax_t), node);
+	else if (node->flag & LLONG)
 		ret = ft_conv_x2(va_arg(ap, unsigned long long), node);
+	else if (node->flag & ZED)
+		ret = ft_conv_x2(va_arg(ap, size_t), node);
 	else if (node->flag & LONG)
 		ret = ft_conv_x2(va_arg(ap, unsigned long), node);
+	else if (node->flag & TEE)
+		ret = ft_conv_x2(va_arg(ap, ptrdiff_t), node);
 	else
 		ret = ft_conv_x2(va_arg(ap, unsigned int), node);
 	if (ret != NULL)
@@ -94,16 +100,6 @@ char		*ft_conv_x(t_lpf *node, va_list ap)
 
 char		*ft_conv_capx(t_lpf *node, va_list ap)
 {
-	char	*ret;
-
 	node->flag |= CAPS;
-	if (node->flag & LLONG)
-		ret = ft_conv_x2(va_arg(ap, unsigned long long), node);
-	else if (node->flag & LONG)
-		ret = ft_conv_x2(va_arg(ap, unsigned long), node);
-	else
-		ret = ft_conv_x2(va_arg(ap, unsigned int), node);
-	if (ret != NULL)
-		node->len = ft_strlen(ret);
-	return (ret);
+	return (ft_conv_x(node, ap));
 }

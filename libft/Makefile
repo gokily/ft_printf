@@ -6,7 +6,7 @@
 #    By: gly <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/06 13:31:32 by gly               #+#    #+#              #
-#    Updated: 2018/12/20 13:22:41 by gly              ###   ########.fr        #
+#    Updated: 2019/01/08 10:33:38 by gly              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -47,7 +47,7 @@ all: $(NAME)
 OBJ = $(SRC:.c=.o)
 
 %.o : %.c ./libft.h
-	gcc -Wall -Wextra -Werror -fsanitize=address -o $@ -c $<
+	gcc -Wall -Wextra -Werror -o $@ -c $<
 
 $(NAME): $(OBJ)
 	ar -rcs $(NAME) $(OBJ)

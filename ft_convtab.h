@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 12:10:58 by gly               #+#    #+#             */
-/*   Updated: 2018/12/28 11:40:23 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 11:16:58 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,7 @@ char			*ft_conv_s(t_lpf *node, va_list ap);
 char			*ft_conv_p(t_lpf *node, va_list ap);
 char			*ft_conv_d(t_lpf *node, va_list ap);
 char			*ft_conv_u(t_lpf *node, va_list ap);
-char			*ft_conv_capu(t_lpf *node, va_list ap);
 char			*ft_conv_o(t_lpf *node, va_list ap);
-char			*ft_conv_capo(t_lpf *node, va_list ap);
 char			*ft_conv_x(t_lpf *node, va_list ap);
 char			*ft_conv_capx(t_lpf *node, va_list ap);
 char			*ft_conv_f(t_lpf *node, va_list ap);
@@ -43,9 +41,7 @@ t_conv	g_convtab[] = {{'c', &ft_conv_c}, \
 	{'i', &ft_conv_d}, \
 	{'b', &ft_conv_b}, \
 	{'u', &ft_conv_u}, \
-	{'U', &ft_conv_capu}, \
 	{'o', &ft_conv_o}, \
-	{'O', &ft_conv_capo}, \
 	{'x', &ft_conv_x}, \
 	{'X', &ft_conv_capx}, \
 	{'f', &ft_conv_f}, \

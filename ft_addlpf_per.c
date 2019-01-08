@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2018/12/28 11:09:30 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 12:16:39 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,7 +94,8 @@ size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
 	if (!(node->type = ft_parse_flag(node, format, index)))
 	{
 		free(node);
-		*index = ft_addlpf_str(lpf, format, *index);
+		if ((*index = ft_addlpf_str(lpf, format, *index)) == 0)
+			return (0);
 		return (1);
 	}
 	if (!(node->str = ft_va2str(node, ap)))

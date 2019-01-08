@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 12:12:59 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 17:07:54 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 11:09:00 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,10 +75,10 @@ char		*ft_conv_d(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
-	if (node->flag & LLONG)
-		ret = ft_conv_d2(va_arg(ap, long long), node);
-	else if (node->flag & JAY)
+	if (node->flag & JAY)
 		ret = ft_conv_d2(va_arg(ap, intmax_t), node);
+	else if (node->flag & LLONG)
+		ret = ft_conv_d2(va_arg(ap, long long), node);
 	else if (node->flag & ZED)
 		ret = ft_conv_d2(va_arg(ap, size_t), node);
 	else if (node->flag & LONG)

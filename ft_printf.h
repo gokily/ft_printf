@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2018/12/28 11:03:00 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 11:17:19 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 # define FT_PRINTF_H
 # include "libft/libft.h"
 # include <stdarg.h>
-#include <stddef.h>
-#include <stdint.h>
+# include <stddef.h>
+# include <stdint.h>
 
 # define POUND		1
 # define ZERO		1 << 1
@@ -33,7 +33,7 @@
 # define ZED		1 << 13
 # define TEE		1 << 14
 # define BUFFSIZE	1000
-# define CONV		"csuUidoOfFXxpb%"
+# define CONV		"csuidofFXxpb%"
 # define FLAG		"#+- 0123456789.hlLjzt"
 
 typedef struct		s_lpf

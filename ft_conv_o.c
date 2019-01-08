@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 14:56:01 by gly               #+#    #+#             */
-/*   Updated: 2018/12/28 12:17:31 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 13:18:48 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,27 +84,18 @@ char		*ft_conv_o(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
-	if (node->flag & LLONG)
+	if (node->flag & JAY)
+		ret = ft_conv_o2(va_arg(ap, uintmax_t), node);
+	else if (node->flag & LLONG)
 		ret = ft_conv_o2(va_arg(ap, unsigned long long), node);
+	else if (node->flag & ZED)
+		ret = ft_conv_o2(va_arg(ap, size_t), node);
 	else if (node->flag & LONG)
 		ret = ft_conv_o2(va_arg(ap, unsigned long), node);
+	else if (node->flag & TEE)
+		ret = ft_conv_o2(va_arg(ap, ptrdiff_t), node);
 	else
 		ret = ft_conv_o2(va_arg(ap, unsigned int), node);
-	if (ret != NULL)
-		node->len = ft_strlen(ret);
-	return (ret);
-}
-
-char		*ft_conv_capo(t_lpf *node, va_list ap)
-{
-	char	*ret;
-
-	if (node->flag & LLONG)
-		ret = ft_conv_o2(va_arg(ap, unsigned long long), node);
-	else if (node->flag & LONG)
-		ret = ft_conv_o2(va_arg(ap, unsigned long), node);
-	else
-		ret = ft_conv_o2(va_arg(ap, unsigned long), node);
 	if (ret != NULL)
 		node->len = ft_strlen(ret);
 	return (ret);

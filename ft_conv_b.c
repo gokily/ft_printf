@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 12:26:25 by gly               #+#    #+#             */
-/*   Updated: 2018/12/28 12:28:14 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/08 13:19:07 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len,
 {
 	size_t	n;
 
-	len += node->flag & POUND ? 1 : 0;
+	len += node->flag & POUND && nb != 0 ? 1 : 0;
 	n = node->width > len ? node->width - len : 0;
 	if (n != 0)
 	{
@@ -80,12 +80,18 @@ char		*ft_conv_b(t_lpf *node, va_list ap)
 {
 	char	*ret;
 
-	if (node->flag & LLONG)
-		ret = ft_conv_b2(va_arg(ap, unsigned long long), node);
+	if (node->flag & JAY)
+		ret = ft_conv_o2(va_arg(ap, uintmax_t), node);
+	else if (node->flag & LLONG)
+		ret = ft_conv_o2(va_arg(ap, unsigned long long), node);
+	else if (node->flag & ZED)
+		ret = ft_conv_o2(va_arg(ap, size_t), node);
 	else if (node->flag & LONG)
-		ret = ft_conv_b2(va_arg(ap, unsigned long), node);
+		ret = ft_conv_o2(va_arg(ap, unsigned long), node);
+	else if (node->flag & TEE)
+		ret = ft_conv_o2(va_arg(ap, ptrdiff_t), node);
 	else
-		ret = ft_conv_b2(va_arg(ap, unsigned int), node);
+		ret = ft_conv_o2(va_arg(ap, unsigned int), node);
 	if (ret != NULL)
 		node->len = ft_strlen(ret);
 	return (ret);
