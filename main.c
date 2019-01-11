@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_node.c                                    :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 16:00:41 by gly               #+#    #+#             */
-/*   Updated: 2019/01/08 11:28:12 by gly              ###   ########.fr       */
+/*   Created: 2018/11/27 14:42:33 by gly               #+#    #+#             */
+/*   Updated: 2019/01/10 11:52:14 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 #include <stdio.h>
+#include "libft/libft.h"
+#include <limits.h>
 
-void	ft_print_node(t_lpf *node)
+int	main(void)
 {
-	printf("Flag is %16s\n", ft_size_t2a_base(node->flag, "01"));
-	printf("Width is %lu\n", node->width);
-	printf("Acc is %lu\n", node->acc);
-	printf("Len is %lu\n", node->len);
-	printf("Type is %c\n", node->type);
-	printf("Str is %s\n", node->str);
+	int	a;
+	int b;
+	a = printf("%4.3s %4.0p\n", 0, &a);
+	b = ft_printf("%4.3s %4.0p\n", 0, &a);
+	if (a == b)
+		puts("C'est bon");
+	return (0);
 }
+

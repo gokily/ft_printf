@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2019/01/08 11:17:19 by gly              ###   ########.fr       */
+/*   Updated: 2019/01/10 13:01:43 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ char				*ft_strzero(size_t len);
 char				*ft_itoa_pf(long long n, t_lpf *node);
 size_t				ft_atoi_pf(const char *str, size_t *index);
 char				*ft_ll2a_pf(long long n);
-void				ft_print_node(t_lpf *node);
 
 #endif
