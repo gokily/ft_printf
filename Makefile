@@ -6,7 +6,7 @@
 #    By: gly <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 12:50:46 by gly               #+#    #+#              #
-#    Updated: 2019/01/10 11:51:29 by gly              ###   ########.fr        #
+#    Updated: 2019/02/21 08:50:48 by gly              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,7 @@ OBJ		=	$(SRC:.c=.o)
 
 CC		=	gcc
 
-CFLAGS	=	-Wall -Wextra -Werror -fsanitize=address
+CFLAGS	=	-Wall -Wextra -Werror
 
 LIBFTDIR	=	./libft
 
