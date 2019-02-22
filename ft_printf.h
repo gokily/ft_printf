@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2019/02/21 14:01:01 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/22 18:18:19 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@
 # define TEE		1 << 14
 # define BUFFSIZE	1000
 # define CONV		"csuidofFXxpb%"
-# define FLAG		"#+- 0123456789.hlLjzt"
+# define FLAG		"#+- *0123456789.hlLjzt"
 
 typedef struct		s_lpf
 {

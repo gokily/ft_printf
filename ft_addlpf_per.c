@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2019/02/22 10:35:39 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/22 18:50:37 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,30 +55,55 @@ static void	ft_parse_mod(t_lpf *node, const char *format)
 	return ;
 }
 
-static char	ft_parse_flag(t_lpf *node, const char *format, size_t *index)
+static void ft_parse_acc_wd(t_lpf *node, const char *format,
+		size_t *index, va_list ap)
+{
+	int		n;
+
+	if (format[*index] == '*')
+	{
+		n = va_arg(ap, int);
+		node->width = n > 0 ? (size_t)n : (size_t)-n;
+		node->flag |= n > 0 ? 0 : MINUS;
+	}
+	else if (ft_isdigit(format[*index]) && format[*index] != 0
+			&& node->width == 0)
+		node->width = ft_atoi_pf(format, index);
+	else if (format[*index] == '.')
+	{
+		node->flag |= ACC;
+		(*index)++;
+		if (format[*index] == '*')
+		{
+			n = va_arg(ap, int);
+			node->acc = n > 0 ? (size_t)n : 0;
+			node->flag ^= n < 0 ? ACC : 0;
+			return ;		
+		}
+		node->acc = ft_atoi_pf(format, index);
+	}
+}
+
+static char	ft_parse_flag(t_lpf *node, const char *format,
+		size_t *index, va_list ap)
 {
 	while (format[*index] && ft_strchr(FLAG, format[*index]))
 	{
 		if (format[*index] == '#')
 			node->flag |= POUND;
-		if (format[*index] == '+')
+		else if (format[*index] == '+')
 			node->flag |= PLUS;
-		if (format[*index] == '-')
+		else if (format[*index] == '-')
 			node->flag |= MINUS;
-		if (format[*index] == ' ')
+		else if (format[*index] == ' ')
 			node->flag |= SPACE;
-		if (format[*index] == '0' && ft_isdigit(format[*index - 1]) == 0)
+		else if (format[*index] == '0' && ft_isdigit(format[*index - 1]) == 0)
 			node->flag |= ZERO;
-		if (ft_isdigit(format[*index]) && format[*index] != 0
-				&& node->width == 0)
-			node->width = ft_atoi_pf(format, index);
-		if (format[*index] == '.')
+		else
 		{
-			node->flag |= ACC;
-			(*index)++;
-			node->acc = ft_atoi_pf(format, index);
+			ft_parse_acc_wd(node, format, index, ap);
+			ft_parse_mod(node, format + *index);
 		}
-		ft_parse_mod(node, format + *index);
 		(*index)++;
 	}
 	return (ft_strchr(CONV, format[*index]) != NULL ? format[*index] : 0);
@@ -91,7 +116,7 @@ size_t		ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
 
 	if (!(node = ft_lpfnew()))
 		return (0);
-	if (!(node->type = ft_parse_flag(node, format, index)))
+	if (!(node->type = ft_parse_flag(node, format, index, ap)))
 	{
 		free(node);
 		node = NULL;
