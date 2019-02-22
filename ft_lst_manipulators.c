@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:20:09 by gly               #+#    #+#             */
-/*   Updated: 2018/12/28 11:17:41 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/22 10:42:29 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ long long	ft_printlpf_all(t_lpf *elem)
 	if (i != 0 && (ret = ret + i))
 		write(1, str, i);
 	free(str);
+	str = NULL;
 	return (ret);
 }
 
@@ -79,7 +80,6 @@ void		ft_rmlpf_all(t_lpf *lst)
 	t_lpf	*elem;
 	t_lpf	*tmp;
 
-	elem = NULL;
 	if (lst != NULL)
 	{
 		elem = lst;
@@ -89,13 +89,7 @@ void		ft_rmlpf_all(t_lpf *lst)
 			tmp = elem;
 			elem = elem->next;
 			free(tmp);
+			tmp = NULL;
 		}
 	}
-}
-
-void		ft_error(t_lpf *lst)
-{
-	ft_rmlpf_all(lst);
-	ft_putstr("error\n");
-	exit(0);
 }

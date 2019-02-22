@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:49:28 by gly               #+#    #+#             */
-/*   Updated: 2019/02/21 14:55:45 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/22 09:29:00 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_add_width(char *str, t_lpf *node)
 
 	len = ft_strlen(str);
 	len = node->flag & ACC && node->acc < len ? node->acc : len;
-	if (!(str = ft_strndupfree(str, len))
+	if (!(str = ft_strndupfree(str, len)))
 		return (NULL);
 	if (len >= node->width)
 		return (str);
