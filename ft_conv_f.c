@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 08:48:23 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 16:58:04 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/21 14:36:26 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,7 +89,6 @@ static char	*ft_conv_f2(long double nb, t_lpf *node)
 	}
 	else
 		ret = ft_assemblefloat(fract, long_nb, node);
-	len += node->acc;
 	len += (nb < 0 || node->flag & PLUS || node->flag & SPACE) ? 1 : 0;
 	if (!(ret = ft_add_width(ret, node, len, nb)))
 		return (NULL);

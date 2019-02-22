@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 14:56:01 by gly               #+#    #+#             */
-/*   Updated: 2019/01/08 13:18:48 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/21 14:08:50 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb,
 {
 	if (node->flag & POUND)
 	{
-		if ((nb != 0 && len > node->acc + 1)
+		if ((nb != 0 && len > node->acc)
 				|| (nb == 0 && node->flag & ACC && node->acc == 0))
+		{
 			return (ft_strjoinfree("0", ret, RIGHT));
+		}
 	}
 	return (ret);
 }
@@ -73,7 +75,7 @@ static char	*ft_conv_o2(unsigned long long nb, t_lpf *node)
 			return (NULL);
 		len = node->acc;
 	}
-	else if (node->flag & POUND)
+	else if (nb != 0 && node->flag & POUND)
 		len++;
 	if (!(ret = ft_add_width(ret, node, len, nb)))
 		return (NULL);

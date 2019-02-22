@@ -6,11 +6,12 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 13:49:28 by gly               #+#    #+#             */
-/*   Updated: 2018/12/04 15:00:30 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/21 14:55:45 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdlib.h>
 
 char	*ft_add_width(char *str, t_lpf *node)
 {
@@ -18,7 +19,8 @@ char	*ft_add_width(char *str, t_lpf *node)
 
 	len = ft_strlen(str);
 	len = node->flag & ACC && node->acc < len ? node->acc : len;
-	str = ft_strndupfree(str, len);
+	if (!(str = ft_strndupfree(str, len))
+		return (NULL);
 	if (len >= node->width)
 		return (str);
 	if (node->flag & MINUS)
