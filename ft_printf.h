@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2019/01/10 13:01:43 by gly              ###   ########.fr       */
+/*   Updated: 2019/02/21 14:01:01 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@
 # include <stdarg.h>
 # include <stddef.h>
 # include <stdint.h>
+
+#include <stdio.h>
 
 # define POUND		1
 # define ZERO		1 << 1
@@ -66,5 +68,7 @@ char				*ft_strzero(size_t len);
 char				*ft_itoa_pf(long long n, t_lpf *node);
 size_t				ft_atoi_pf(const char *str, size_t *index);
 char				*ft_ll2a_pf(long long n);
+
+void	ft_print_node(t_lpf *node);
 
 #endif
