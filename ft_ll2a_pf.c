@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 14:33:52 by gly               #+#    #+#             */
-/*   Updated: 2018/12/20 14:27:41 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:24:29 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char		*ft_ll2a_pf(long long n)
 	power = n > 9 || n < -9 ? power * 10 : power;
 	while (n / power > 9)
 		power *= 10;
-	if (!(ptr = (char *)malloc(sizeof(*ptr) * (digit_num(n) + 1))))
+	if (!(ptr = malloc(sizeof(*ptr) * (digit_num(n) + 1))))
 		return (0);
 	i = 0;
 	while (power != 0)

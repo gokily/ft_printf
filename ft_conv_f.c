@@ -6,11 +6,12 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 08:48:23 by gly               #+#    #+#             */
-/*   Updated: 2019/02/21 14:36:26 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:23:06 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <stdlib.h>
 
 static char	*ft_add_flags(char *ret, t_lpf *node, long double nb)

@@ -6,12 +6,15 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/28 12:26:25 by gly               #+#    #+#             */
-/*   Updated: 2019/01/10 09:52:41 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:22:50 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <stdlib.h>
+#include <stddef.h>
+#include <stdint.h>
 
 static char	*ft_checkpound(char *ret, t_lpf *node, unsigned long long nb)
 {

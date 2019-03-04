@@ -6,11 +6,12 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 11:52:08 by gly               #+#    #+#             */
-/*   Updated: 2019/02/22 10:34:35 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:25:49 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 #include <stdlib.h>
 
 size_t	ft_addlpf_str(t_lpf **lpf, const char *format, size_t index)

@@ -6,16 +6,13 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2019/02/22 18:18:19 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:36:21 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include "libft/libft.h"
 # include <stdarg.h>
-# include <stddef.h>
-# include <stdint.h>
 
 #include <stdio.h>
 
@@ -55,7 +52,6 @@ long long			ft_printlpf_all(t_lpf *lpf);
 t_lpf				*ft_lpfnew(void);
 t_lpf				**ft_lpf_push(t_lpf **lpf, t_lpf *node);
 void				ft_rmlpf_all(t_lpf *lst);
-void				ft_error(t_lpf *lst);
 
 size_t				ft_addlpf_per(t_lpf **lpf, const char *format, va_list ap,
 		size_t *index);

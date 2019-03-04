@@ -6,11 +6,12 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 10:49:42 by gly               #+#    #+#             */
-/*   Updated: 2019/01/10 10:30:23 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:23:28 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 static char	*ft_add_width(char *ret, t_lpf *node, size_t len)
 {

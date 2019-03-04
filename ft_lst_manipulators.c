@@ -6,13 +6,14 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:20:09 by gly               #+#    #+#             */
-/*   Updated: 2019/02/22 10:42:29 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 09:24:53 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdlib.h>
 #include "ft_printf.h"
+#include "libft/libft.h"
 
 long long	ft_printlpf_all(t_lpf *elem)
 {
