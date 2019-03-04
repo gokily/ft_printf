@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2019/02/22 18:50:37 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 08:53:21 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,11 +63,10 @@ static void ft_parse_acc_wd(t_lpf *node, const char *format,
 	if (format[*index] == '*')
 	{
 		n = va_arg(ap, int);
-		node->width = n > 0 ? (size_t)n : (size_t)-n;
-		node->flag |= n > 0 ? 0 : MINUS;
+		node->width = n >= 0 ? (size_t)n : (size_t)-n;
+		node->flag |= n >= 0 ? 0 : MINUS;
 	}
-	else if (ft_isdigit(format[*index]) && format[*index] != 0
-			&& node->width == 0)
+	else if (ft_isdigit(format[*index]) && format[*index] != 0)
 		node->width = ft_atoi_pf(format, index);
 	else if (format[*index] == '.')
 	{

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 14:42:33 by gly               #+#    #+#             */
-/*   Updated: 2019/02/21 15:51:09 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 08:51:06 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,17 @@
 
 int	main(void)
 {
-	int b;
-//	int a = 1;
+	char	*str;
+	int		ret;
 
-	b = ft_printf("%p\n", 0);
-	b = ft_printf("%p\n", 123);
-	b = ft_printf("%-4%%i %d %u %o %x %X %p %s %c\n", 123, -123, -123, 123, 123, 123, 123, "wer", 'c');
-
+	str = strdup("test, test\n");
+	ret = printf("{%3+5d}", 0);
+	puts("");
+	printf("ret is %d\n", ret);
+	ret = ft_printf("{%3+5d}", 5, 0);
+	puts("");
+	printf("ret is %d\n", ret);
+	free(str);
 	return (0);
 }
 
