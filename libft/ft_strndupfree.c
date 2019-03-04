@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 16:24:03 by gly               #+#    #+#             */
-/*   Updated: 2019/02/22 09:23:23 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 13:11:50 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,11 @@ char	*ft_strndupfree(char *str, size_t len)
 
 	i = 0;
 	if (!(ret = malloc(sizeof(char) * (len + 1))))
+	{
+		free(str);
+		str = NULL;
 		return (NULL);
+	}
 	while (i < len)
 	{
 		ret[i] = str[i];

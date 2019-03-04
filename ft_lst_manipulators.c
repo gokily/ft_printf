@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 15:20:09 by gly               #+#    #+#             */
-/*   Updated: 2019/03/04 09:24:53 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 11:09:42 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ t_lpf		*ft_lpfnew(void)
 {
 	t_lpf	*new;
 
-	if (!(new = (t_lpf*)malloc(sizeof(t_lpf))))
+	if (!(new = malloc(sizeof(t_lpf))))
 		return (NULL);
 	new->next = NULL;
 	new->flag = 0;

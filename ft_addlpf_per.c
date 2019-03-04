@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:50:21 by gly               #+#    #+#             */
-/*   Updated: 2019/03/04 09:25:35 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 13:14:01 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static void	ft_parse_mod(t_lpf *node, const char *format)
 	return ;
 }
 
-static void ft_parse_acc_wd(t_lpf *node, const char *format,
+static void	ft_parse_acc_wd(t_lpf *node, const char *format,
 		size_t *index, va_list ap)
 {
 	int		n;
@@ -78,7 +78,7 @@ static void ft_parse_acc_wd(t_lpf *node, const char *format,
 			n = va_arg(ap, int);
 			node->acc = n > 0 ? (size_t)n : 0;
 			node->flag ^= n < 0 ? ACC : 0;
-			return ;		
+			return ;
 		}
 		node->acc = ft_atoi_pf(format, index);
 	}

@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 10:49:42 by gly               #+#    #+#             */
-/*   Updated: 2019/03/04 09:23:28 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 11:42:21 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char		*ft_conv_p(t_lpf *node, va_list ap)
 	size_t	len;
 
 	addr = va_arg(ap, size_t);
-	if (!(ret = addr == 0 && node->flag & ACC ? ft_strzero(node->acc) :
+	if (!(ret = (addr == 0 && node->flag & ACC) ? ft_strzero(node->acc) :
 		ft_size_t2a_base(addr, "0123456789abcdef")))
 		return (NULL);
 	len = ft_strlen(ret);

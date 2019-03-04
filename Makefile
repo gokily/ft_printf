@@ -6,7 +6,7 @@
 #    By: gly <marvin@42.fr>                         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/12/03 12:50:46 by gly               #+#    #+#              #
-#    Updated: 2019/02/21 08:50:48 by gly              ###   ########.fr        #
+#    Updated: 2019/03/04 12:03:36 by gly              ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,11 +43,11 @@ LIBFT	=	$(LIBFTDIR)/libft.a
 all		: $(NAME)
 
 $(NAME)	: $(LIBFT) $(OBJ)
+	cp $(LIBFT) $(NAME)
 	ar -rcs $(NAME) $(OBJ)
 
 $(LIBFT) :
 	make -C libft
-	cp $(LIBFT) $(NAME)
 
 %.o		:	%.c	./ft_printf.h	./ft_convtab.h	./Makefile
 	$(CC) $(CFLAGS) -o $@ -c $<

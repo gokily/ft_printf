@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/03 08:48:23 by gly               #+#    #+#             */
-/*   Updated: 2019/03/04 09:23:06 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 13:41:06 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ static char	*ft_add_width(char *ret, t_lpf *node, size_t len, long double nb)
 	return (ft_add_flags(ret, node, nb));
 }
 
-static char	*ft_assemblefloat(long double nb, long long_nb, t_lpf *node)
+static char	*ft_assemblefloat(long double nb, long long long_nb, t_lpf *node)
 {
 	char	*ret;
 	size_t	i;
@@ -60,7 +60,9 @@ static char	*ft_assemblefloat(long double nb, long long_nb, t_lpf *node)
 	while (i < acc)
 	{
 		nb *= 10;
-		fract[i] = (int)nb + '0';
+		if (nb >= 10)
+			long_nb++;
+		fract[i] = nb >= 10 ? '0' : (int)nb + '0';
 		nb -= (int)nb;
 		i++;
 	}

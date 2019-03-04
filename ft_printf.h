@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/04 15:14:36 by gly               #+#    #+#             */
-/*   Updated: 2019/03/04 09:36:21 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/04 14:01:36 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 # define JAY		1 << 12
 # define ZED		1 << 13
 # define TEE		1 << 14
-# define BUFFSIZE	1000
+# define BUFFSIZE	1023
 # define CONV		"csuidofFXxpb%"
 # define FLAG		"#+- *0123456789.hlLjzt"
 
