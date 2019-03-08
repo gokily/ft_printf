@@ -6,7 +6,7 @@
 /*   By: gly <marvin@42.fr>                         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/27 09:46:41 by gly               #+#    #+#             */
-/*   Updated: 2019/03/04 09:25:13 by gly              ###   ########.fr       */
+/*   Updated: 2019/03/08 10:45:28 by gly              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ int			ft_printf(const char *format, ...)
 	va_list		ap;
 	int			ret;
 
+	if (format == NULL)
+		return (-1);
 	lst = NULL;
 	if (ft_strchr(format, '%') == NULL)
 		return (ft_printstr((char *)format));
